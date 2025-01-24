@@ -1,9 +1,44 @@
 import React, { useState } from 'react';
 import './index.css'; // CSS file for styling
 
-function App() {
+function Loan() {
   const [loanAmount, setLoanAmount] = useState(14500000); // Default loan amount
   const [loanPeriod, setLoanPeriod] = useState(12); // Default loan period
+  const [monthlyInstallment, setMonthlyInstallment] = useState(0); // State to store the calculated installment
+
+  // Calculate monthly installment (EMI)
+  const calculateInstallment = () => {
+    const interestRate = 0.05; // Assuming 5% annual interest rate for this example
+    const monthlyRate = interestRate / 12; // Monthly interest rate
+    const months = loanPeriod; // Loan period in months
+
+    // EMI Formula (simplified)
+    const emi = (loanAmount * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
+    setMonthlyInstallment(emi.toFixed(0)); // Set the calculated EMI
+  };
+
+  const handleApplyLoan = () => {
+    console.log(`Loan Amount: Rp ${loanAmount.toLocaleString()}`);
+    console.log(`Loan Period: ${loanPeriod} Months`);
+    console.log(`Monthly Installment: Rp ${monthlyInstallment}`);
+  };
+
+  // Update the loan amount and recalculate installment
+  const handleLoanAmountChange = (e) => {
+    setLoanAmount(e.target.value);
+    calculateInstallment();
+  };
+
+  // Update the loan period and recalculate installment
+  const handleLoanPeriodChange = (e) => {
+    setLoanPeriod(e.target.value);
+    calculateInstallment();
+  };
+
+  // Initial calculation when the component mounts
+  React.useEffect(() => {
+    calculateInstallment();
+  }, [loanAmount, loanPeriod]);
 
   return (
     <div className="loan-calculator">
@@ -34,7 +69,7 @@ function App() {
           max="17485000"
           step="100000"
           value={loanAmount}
-          onChange={(e) => setLoanAmount(e.target.value)}
+          onChange={handleLoanAmountChange}
         />
         <div className="slider-values">
           <span>1,000,000</span>
@@ -52,7 +87,7 @@ function App() {
           max="18"
           step="1"
           value={loanPeriod}
-          onChange={(e) => setLoanPeriod(e.target.value)}
+          onChange={handleLoanPeriodChange}
         />
         <div className="slider-values">
           <span>6 Months</span>
@@ -63,7 +98,7 @@ function App() {
       {/* Monthly Installment Section */}
       <div className="installment-container">
         <p>Estimated Monthly Installments</p>
-        <h2>Rp 150.000</h2>
+        <h2>Rp {monthlyInstallment}</h2>
         <p className="installment-note">
           Installment fees may change according to the results of the
           verification of the physical condition of the vehicle at the branch
@@ -72,9 +107,11 @@ function App() {
       </div>
 
       {/* Apply Button */}
-      <button className="apply-button">APPLY LOAN</button>
+      <button className="apply-button" onClick={handleApplyLoan}>
+        APPLY LOAN
+      </button>
     </div>
   );
 }
 
-export default App;
+export default Loan;

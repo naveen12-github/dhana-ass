@@ -5,16 +5,21 @@ body {
   color: #ffffff;
   margin: 0;
   padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  overflow: hidden; /* Disable scrolling */
 }
 
 /* Loan Calculator Container */
 .loan-calculator {
-  width: 90%;
-  max-width: 400px;
-  margin: 20px auto;
+  width: 85%; /* Reduced width */
+  max-width: 320px; /* Further reduced width for smaller screens */
   background-color: #2d334a; /* Card background */
   border-radius: 15px;
-  padding: 20px;
+  padding: 10px; /* Reduced padding */
+  box-sizing: border-box; /* Ensures padding is included in width/height */
 }
 
 /* Header Section */
@@ -22,11 +27,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+  font-size: 14px; /* Reduced font size */
 }
 
 .header .icon {
-  font-size: 24px;
+  font-size: 18px; /* Reduced icon size */
   cursor: pointer;
 }
 
@@ -35,31 +40,31 @@ body {
   background-color: #1b1f36; /* Inner container background */
   border: 1px solid #394059; /* Border color */
   border-radius: 10px;
-  padding: 15px;
-  margin-top: 20px;
+  padding: 8px; /* Reduced padding */
+  margin-top: 8px; /* Reduced margin */
   text-align: center;
 }
 
 .funding-title {
-  font-size: 14px;
+  font-size: 11px; /* Reduced font size */
   color: #9ca3af; /* Light gray text */
 }
 
 .funding-amount {
-  font-size: 22px;
+  font-size: 16px; /* Reduced font size */
   font-weight: bold;
-  margin: 10px 0;
+  margin: 4px 0;
 }
 
 .funding-details {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 9px; /* Reduced font size */
   color: #9ca3af;
 }
 
 .filter-icon {
-  font-size: 20px;
+  font-size: 14px; /* Reduced icon size */
   cursor: pointer;
 }
 
@@ -68,30 +73,30 @@ body {
   background-color: #1b1f36;
   border: 1px solid #394059;
   border-radius: 10px;
-  padding: 15px;
-  margin-top: 20px;
+  padding: 8px; /* Reduced padding */
+  margin-top: 8px; /* Reduced margin */
 }
 
 .slider-container p {
-  font-size: 14px;
+  font-size: 11px; /* Reduced font size */
   color: #9ca3af;
 }
 
 .slider-container h2 {
-  font-size: 18px;
+  font-size: 14px; /* Reduced font size */
   font-weight: bold;
-  margin: 10px 0;
+  margin: 4px 0;
 }
 
 input[type='range'] {
   width: 100%;
-  margin: 10px 0;
+  margin: 4px 0; /* Reduced margin */
 }
 
 .slider-values {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 9px; /* Reduced font size */
   color: #9ca3af;
 }
 
@@ -100,26 +105,26 @@ input[type='range'] {
   background-color: #1b1f36;
   border: 1px solid #394059;
   border-radius: 10px;
-  padding: 15px;
-  margin-top: 20px;
+  padding: 8px; /* Reduced padding */
+  margin-top: 8px; /* Reduced margin */
   text-align: center;
 }
 
 .installment-container p {
-  font-size: 12px;
+  font-size: 9px; /* Reduced font size */
   color: #9ca3af;
 }
 
 .installment-container h2 {
-  font-size: 18px;
+  font-size: 14px; /* Reduced font size */
   font-weight: bold;
-  margin: 10px 0;
+  margin: 4px 0;
 }
 
 .installment-note {
-  font-size: 12px;
+  font-size: 9px; /* Reduced font size */
   color: #9ca3af;
-  margin-top: 10px;
+  margin-top: 4px; /* Reduced margin */
 }
 
 /* Apply Button */
@@ -128,16 +133,20 @@ input[type='range'] {
   width: 100%;
   background-color: #006ee6;
   color: white;
-  padding: 15px;
+  padding: 10px; /* Reduced padding */
   border: none;
   border-radius: 10px;
-  font-size: 16px;
+  font-size: 13px; /* Reduced font size */
   font-weight: bold;
-  margin-top: 20px;
+  margin-top: 10px; /* Reduced margin */
   cursor: pointer;
   text-align: center;
 }
 
 .apply-button:hover {
-  background-color: #17c9e8;
+  background-color: #0056b3;
 }
+.header h1 {
+  font-size: 18px; /* Adjust to your preferred size */
+}
+
